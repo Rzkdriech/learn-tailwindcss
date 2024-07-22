@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,22 +14,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
-              poppins: ["Inter"],
+              poppins: ["Poppins"],
             },
+
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+              'wiggle': 'wiggle 1s ease-in-out'
+            },
+
+            keyframes: {
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)'},
+                '50%': { transform: 'rotate(3deg)'}
+              }
+            }
           },
         },
       };
     </script>
-    <!-- <style type="text/tailwindcss">
-      * {
-        border: 1px solid red;
+    <style type="text/tailwindcss">
+      #toggle:checked ~ label div.toggle-circle {
+        @apply translate-x-3;
       }
-    </style> -->
+    </style>
   </head>
-  <body>
+  <body class="dark:bg-slate-800 dark:text-slate-200">
     <h1
       class="text-8xl font-bold text-center my-10 bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent"
     >
@@ -80,8 +93,127 @@
       </p>
     </section>
 
-    <div class="max-w-xl h-96 bg-slate-300 mx-auto" style="background-image: url(https://images.unsplash.com/photo-1721265250424-a2ad2f1efcf1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"></div>
+    <div
+      class="max-w-xl h-96 bg-slate-300 mx-auto overflow-y-scroll bg-fixed text-white bg-cover"
+      style="
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT83DTGQEBieBuAb77Ln8bUd0qlYliIeICOcg&s');
+      "
+    >
+      <p class="p-5 text-2xl">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt et
+        molestiae ducimus placeat quasi commodi officia natus quidem soluta
+        consequatur! Quae quasi quia minus, tempore non commodi temporibus quas
+        cumque esse veritatis, inventore dicta ipsum explicabo asperiores? Sed
+        fugiat maxime dolores, corrupti asperiores nostrum eos rem amet
+        cupiditate ipsam dolorum magnam obcaecati culpa consequuntur quo odit
+        dolore blanditiis quisquam voluptas eius facilis iure? Veritatis, quam
+        eligendi. Culpa, libero? Ipsum recusandae rem, laborum, deleniti sint et
+        fugiat a reiciendis possimus nostrum, distinctio cum repudiandae eos
+        voluptatibus qui minima quod dignissimos eveniet earum saepe! Quos
+        voluptatum facilis perspiciatis voluptas consequuntur architecto, ab
+        dolorem sunt odio dolore illo, tempora nam eum perferendis, excepturi
+        dolorum sit amet ipsum minus commodi voluptates velit cumque aspernatur!
+        Soluta commodi maiores voluptate pariatur doloremque quo cum placeat
+        deleniti suscipit beatae nesciunt quod earum veniam amet odit neque enim
+        sint veritatis, doloribus nostrum accusamus incidunt totam quam.
+        Consectetur debitis quam architecto possimus aliquid molestias!
+        Voluptate, soluta dolore ut modi quidem, porro neque mollitia optio
+        eaque vitae tempora sit quae eligendi harum perspiciatis! Soluta odio,
+        deleniti minima rem amet, ratione, ab quibusdam nesciunt magni rerum hic
+        dolores. Possimus porro doloribus, molestias nihil autem incidunt,
+        dolores asperiores voluptas tenetur ducimus nemo!
+      </p>
+    </div>
+
+    <div
+      class="mt-32 max-w-xl mx-auto h-96 bg-slate-300 bg-cover rounded-xl border-8 border-slate-200 overflow-hidden brightness-95 flex"
+      style="background-image: url(./img/1.jpg)"
+    >
+      <div
+        class="w-[200px] h-[200px] bg-white/30 m-auto backdrop-blur-sm rounded-full"
+      ></div>
+    </div>
+
+    <hr class="my-20" />
+
+    <div class="flex justify-center">
+      <span class="text-sm text-slate-500 mr-2">Dark</span>
+      <input type="checkbox" id="toggle" class="hidden" />
+      <label for="toggle">
+        <div
+          class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer"
+        >
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span class="text-sm text-slate-500 ml-2">Light</span>
+    </div>
+
+    <button
+      class="my-10 bg-sky-500 px-5 rounded-full block mx-auto text-white font-semibold font-poppins hover:bg-sky-700 active:bg-sky-800 focus:ring focus:ring-sky-300 dark:bg-slate-300 dark:text-slate-800 dark:hover:bg-slate-100"
+    >
+      Save
+    </button>
+
+    <div
+      class="max-w-lg border border-slate-200 rounded-xl mx-auto p-5 shadow-md font-poppins hover:bg-sky-500 group mb-8 dark:hover:bg-slate-300"
+    >
+      <h5
+        class="font-bold text-slate-700 mb-3 group-hover:text-white dark:group-hover:text-slate-800"
+      >
+        My Card
+      </h5>
+      <p
+        class="group-hover:text-white selection:bg-lime-300 selection:text-slate-900 dark:group-hover:text-slate-800"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+        perferendis consequatur assumenda a itaque excepturi sit impedit,
+        obcaecati nobis nihil?
+      </p>
+    </div>
+
+    <div
+      class="max-w-lg border border-slate-200 rounded-xl mx-auto shadow-md font-poppins p-5"
+    >
+      <form action="">
+        <label for="email">
+          <span
+            class="block font-semibold mb-2 text-slate-700 after:content-['*'] after:text-pink-500 after:ml-0.5"
+            >Email</span
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Type your email here"
+            class="px-3 py-2 border shadow rounded w-full block text-sm placeholder:text-slate-400 invalid:text-pink-700 invalid:focus:ring-pink-700invalid:focus:border-pink-700 peer"
+          />
+          <p class="text-sm m-1 text-pink-700 invisible peer-invalid:visible">
+            make sure u type email
+          </p>
+        </label>
+      </form>
+    </div>
+
+    <hr class="my-20">
+
+    <div class="w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-125 hover:rotate-45 hover:translate-x-16 hover:bg-pink-400 transition origin-top-left"></div>
+
+    <div class="w-40 h-40  mx-auto mt-20 group">
+      <div class="w-full h-full bg-sky-500 rounded-lg shadow-lg group-hover:rotate-180 origin-top-left transition duration-1000 ease-linear"></div>
+    </div>
+
+    <div class="w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg mt-20 animate-wiggle"></div>
 
     <div class="mb-96"></div>
+
+    <script>
+      const checkbox = document.querySelector('#toggle')
+      const html = document.querySelector('html')
+
+      checkbox.addEventListener('click', function() {
+        checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark')
+      })
+    </script>
   </body>
 </html>
